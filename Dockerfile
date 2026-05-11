@@ -29,4 +29,4 @@ RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 10000
 
-CMD php artisan serve --host=0.0.0.0 --port=10000
+CMD touch database/database.sqlite && php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=10000
