@@ -5,17 +5,19 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    libzip-dev \
-    zip \
     curl \
+    zip \
+    libzip-dev \
     libpng-dev \
     libonig-dev \
-    libxml2-dev
+    libxml2-dev \
+    nodejs \
+    npm
 
 RUN docker-php-ext-install \
-    zip \
     pdo \
     pdo_mysql \
+    zip \
     bcmath \
     gd \
     mbstring \
@@ -26,6 +28,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
+
+RUN npm install
+RUN npm run build
 
 EXPOSE 10000
 
