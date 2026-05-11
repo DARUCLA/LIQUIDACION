@@ -1,13 +1,27 @@
 FROM php:8.2-cli
 
-RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev zip curl
+WORKDIR /app
 
-RUN docker-php-ext-install zip pdo pdo_mysql
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    zip \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev
+
+RUN docker-php-ext-install \
+    zip \
+    pdo \
+    pdo_mysql \
+    bcmath \
+    gd \
+    mbstring \
+    xml
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-WORKDIR /app
 
 COPY . .
 
