@@ -6,7 +6,56 @@
         <title>@yield('title', 'SANTRIX ANEXO LOCAL')</title>
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700|space-grotesk:500,700" rel="stylesheet" />
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+            @vite(['resources/css/app.css', 'resources/js/app.js'])
+            <style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f1f5f9;
+    color:#1e293b;
+}
+.sidebar{
+    width:250px;
+    background:#0f172a;
+    color:white;
+    min-height:100vh;
+    padding:20px;
+    position:fixed;
+}
+.content{
+    margin-left:270px;
+    padding:30px;
+}
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+.btn{
+    display:inline-block;
+    padding:10px 15px;
+    background:#0ea5e9;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+table th{
+    background:#0f172a;
+    color:white;
+    padding:12px;
+}
+table td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+</style>
     </head>
     <body class="min-h-screen bg-slate-100 text-slate-800">
         <div class="min-h-screen lg:flex">
